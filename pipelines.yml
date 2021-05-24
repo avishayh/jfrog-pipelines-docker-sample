@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: avishayh_github                   
-      path: jfrog/jfrog-pipelines-docker-sample    
+      path: avishayh/jfrog-pipelines-docker-sample    
       branches:
         include: master
 
