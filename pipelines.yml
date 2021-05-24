@@ -19,14 +19,14 @@ resources:
   - name: avishayh_dbp_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: art_v
       buildName: dbp_build
       buildNumber: 1    
 
   - name: avishayh_dbp_promoted_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: art_v
       buildName: dbp_build
       buildNumber: 1
       
