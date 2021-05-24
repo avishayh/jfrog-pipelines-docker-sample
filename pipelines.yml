@@ -1,5 +1,5 @@
 resources:
-  - name: dbp_repo
+  - name: avishayh_dbp_repo
     type: GitRepo
     configuration:
       gitProvider: avishayh_github                   
@@ -7,7 +7,7 @@ resources:
       branches:
         include: master
 
-  - name: dbp_image
+  - name: avishayh_dbp_image
     type: Image
     configuration:
       registry: art_v                                
@@ -16,14 +16,14 @@ resources:
       imageTag: latest
       autoPull: true
       
-  - name: dbp_build_info
+  - name: avishayh_dbp_build_info
     type: BuildInfo
     configuration:
       sourceArtifactory: art
       buildName: dbp_build
       buildNumber: 1    
 
-  - name: dbp_promoted_build_info
+  - name: avishayh_dbp_promoted_build_info
     type: BuildInfo
     configuration:
       sourceArtifactory: art
@@ -43,7 +43,7 @@ pipelines:
           dockerImageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
-            - name: dbp_repo
+            - name: avishayh_dbp_repo
           integrations:
             - name: art_v                            # <-- replace with your artifactory integration
 
@@ -57,7 +57,7 @@ pipelines:
           inputSteps:
             - name: docker_build
           outputResources:
-            - name: dbp_image
+            - name: avishayh_dbp_image
 
       - name: publish_dbp_build
         type: PublishBuildInfo
@@ -65,7 +65,7 @@ pipelines:
           inputSteps:
             - name: docker_push
           outputResources:
-            - name: dbp_build_info
+            - name: avishayh_dbp_build_info
 
       - name: promote_dbp_build
         type: PromoteBuild
@@ -74,7 +74,7 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name: dbp_build_info
+            - name: avishayh_dbp_build_info
           outputResources:
-            - name: dbp_promoted_build_info
+            - name: avishayh_dbp_promoted_build_info
 
