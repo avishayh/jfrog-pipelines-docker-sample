@@ -3,7 +3,7 @@ Pipeline:
 
 GitRepo:
   name: avishayhTemplateGitRepo
-  gitProvider: github
+  gitProvider: avishayh_github
   path: avishayh/jfrog-pipelines-docker-sample
   branches:
     exclude: 'master'
