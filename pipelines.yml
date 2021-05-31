@@ -12,7 +12,7 @@ resources:
     configuration:
       registry: art_v                                
       sourceRepository: docker_local               
-      imageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # < -- replace with your image path and name
+      imageName: avishayhtest.jfrog.info/docker-local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
@@ -40,7 +40,7 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # replace with your image path and name
+          dockerImageName: avishayhtest.jfrog.info/docker-local/dbp  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: avishayh_dbp_repo
