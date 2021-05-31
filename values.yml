@@ -1,4 +1,32 @@
-gitProvider: avishayh_github
-artifactory: art_v
-repoPath: avishayh-jfrog/jfrog-pipelines-maven-sample
-deployerRepo: maven-local
+Pipeline:
+  name: avishayh_pipeline_template_dbp
+
+GitRepo:
+  name: avishayhTemplateGitRepo
+  gitProvider: github
+  path: avishayh/jfrog-pipelines-docker-sample
+  branches:
+    exclude: 'master'
+    include: {{gitBranch}}
+
+artifactoryIntegration: art_v
+
+Image:
+  name: dbpFromTemplate
+  sourceRepository: docker-local
+  autoPull: false
+
+DockerBuild:
+  name: dbpBuildFromTemplate
+  dockerImageName: foo
+  dockerFileName: foo
+  dockerFileLocation: '.'
+  dockerImageTag: ${run_number}
+
+DockerPush:
+  name: foopush
+  targetRepository: foo
+
+BuildInfo:
+  autoPublishBuildInfo: true
+  name: fooBuildInfo
